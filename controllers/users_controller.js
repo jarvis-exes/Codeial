@@ -27,7 +27,6 @@ module.exports.signin = function(req,res){
     });
 }
 
-
 //Get the sign up data
 module.exports.create = function(req, res){
     if (req.body.password != req.body.confirm_password){
