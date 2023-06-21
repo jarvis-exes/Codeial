@@ -10,6 +10,7 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo')(session);
 
+
 //Using middleware
 app.use(express.urlencoded());
 

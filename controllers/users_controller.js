@@ -1,10 +1,25 @@
 //Importing data schema
 const User = require('../models/user');
 
+//Render the profile page
 module.exports.profile = function(req,res){
-    return res.render('user_profile',{
-        title : 'Profile'
+    User.findById(req.params.id, function(err, user){
+        return res.render('user_profile',{
+            title : 'Profile',
+            profile_user : user
+        });
     });
+}
+
+//Update the profile
+module.exports.update = function(req, res){
+    if(req.user.id == req.params.id){
+        User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
+            return res.redirect('back');
+        });
+    }else{
+        return res.status(401).send('Unauthorized');
+    }
 }
 
 //Render the sign up page
