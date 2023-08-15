@@ -9,6 +9,7 @@ router.use('/users',require('./users'));
 router.use('/posts',require('./posts'));
 router.use('/comments',require('./comments'));
 
+router.use('/api', require('./api'));
 // Any further routes can be accesed from here
 // router.use('/routerName', require('./routerFile'))
 

@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 //Used for session cookie
 const session = require('express-session');
 const passport = require('passport');
+const passportJWT = require('./config/passport-jwt-strategy');
+const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
@@ -21,6 +23,9 @@ app.use(cookieParser());
 
 // Accessing the static files
 app.use(express.static('./assets'));
+
+// Make the uploads path available to the browser
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 //Setting the EJS view engine
 app.set('view engine', 'ejs');
